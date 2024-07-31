@@ -1,13 +1,22 @@
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
 import MailChimp from '../Components/mailchimp.js';
 import { Button } from '@mui/material';
+import { useState } from 'react';
+
 
 export default function Home() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const togChimp = () =>{
+        setIsOpen(isOpen => !isOpen);
+    }
   return (
       <main className={styles.main}>
           <div>
               <Button
+                  onClick={togChimp}
                   style={{
                       backgroundColor: '#A3A791',  // Custom hex color
                       color: '#2C0000',           // Custom text color
@@ -18,8 +27,9 @@ export default function Home() {
                   }}
               >
         JOIN TODAY
-        </Button>
-              <MailChimp/>
+              </Button>
+              {isOpen &&
+                  <MailChimp />}
           </div>
     </main>
   );
