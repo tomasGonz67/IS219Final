@@ -12,6 +12,8 @@
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^5.16.6",
+    "@types/gtag.js": "^0.0.20",
+    "client-only": "^0.0.1",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
