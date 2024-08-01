@@ -1,10 +1,32 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Box, Button, Typography } from '@mui/material';
+import { getLocalStorage, setLocalStorage } from '@/Components/storageHelper';
 
 export default function CookieBanner() {
+    const [cookieConsent, setCookieConsent] = useState(false);
+
+    useEffect(() => {
+        const storedCookieConsent = getLocalStorage("cookie_consent", null);
+        setCookieConsent(storedCookieConsent);
+    }, []);
+
+    useEffect(() => {
+        const newValue = cookieConsent ? 'granted' : 'denied';
+
+        window.gtag("consent", 'update', {
+            'analytics_storage': newValue
+        });
+
+        setLocalStorage("cookie_consent", cookieConsent);
+
+        // For Testing
+        console.log("Cookie Consent: ", cookieConsent);
+
+    }, [cookieConsent]);
+
     return (
         <Box
             sx={{
@@ -28,19 +50,20 @@ export default function CookieBanner() {
         >
             <Box sx={{ textAlign: 'center' }}>
                 <Link href="/info/cookies" passHref>
-                    <Typography component="a" color="skyblue" fontWeight="bold">
+                    <Typography  color="skyblue" fontWeight="bold">
                         We use <span style={{ color: 'skyblue', fontWeight: 'bold' }}>cookies</span> on our site.
                     </Typography>
                 </Link>
             </Box>
             <Box sx={{ display: 'flex', gap: 2 }}>
-                <Button variant="outlined" color="inherit" sx={{ borderColor: 'gray.900', color: 'gray.300' }}>
+                <Button onClick={() => setCookieConsent(false)} variant="outlined" color="inherit" sx={{ borderColor: 'gray.900', color: 'gray.300' }}>
                     Decline
                 </Button>
-                <Button variant="contained" sx={{ bgcolor: 'gray.900' }}>
+                <Button onClick={() => setCookieConsent(true)} variant="contained" sx={{ bgcolor: 'gray.900' }}>
                     Allow Cookies
                 </Button>
             </Box>
         </Box>
     );
 }
+
