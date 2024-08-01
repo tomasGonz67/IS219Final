@@ -6,26 +6,36 @@ import { Box, Button, Typography } from '@mui/material';
 import { getLocalStorage, setLocalStorage } from '@/Components/storageHelper';
 
 export default function CookieBanner() {
-    const [cookieConsent, setCookieConsent] = useState(false);
+    const [cookieConsent, setCookieConsent] = useState(null);
+    const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
         const storedCookieConsent = getLocalStorage("cookie_consent", null);
-        setCookieConsent(storedCookieConsent);
+        if (storedCookieConsent !== null) {
+            setCookieConsent(storedCookieConsent);
+            setIsVisible(false);
+        }
     }, []);
 
     useEffect(() => {
-        const newValue = cookieConsent ? 'granted' : 'denied';
+        if (cookieConsent !== null) {
+            const newValue = cookieConsent ? 'granted' : 'denied';
 
-        window.gtag("consent", 'update', {
-            'analytics_storage': newValue
-        });
+            window.gtag("consent", 'update', {
+                'analytics_storage': newValue
+            });
 
-        setLocalStorage("cookie_consent", cookieConsent);
+            setLocalStorage("cookie_consent", cookieConsent);
 
-        // For Testing
-        console.log("Cookie Consent: ", cookieConsent);
+            // For Testing
+            console.log("Cookie Consent: ", cookieConsent);
 
+            // Hide the banner after setting the consent
+            setIsVisible(false);
+        }
     }, [cookieConsent]);
+
+    if (!isVisible) return null;
 
     return (
         <Box
@@ -50,7 +60,7 @@ export default function CookieBanner() {
         >
             <Box sx={{ textAlign: 'center' }}>
                 <Link href="/info/cookies" passHref>
-                    <Typography  color="skyblue" fontWeight="bold">
+                    <Typography color="skyblue" fontWeight="bold">
                         We use <span style={{ color: 'skyblue', fontWeight: 'bold' }}>cookies</span> on our site.
                     </Typography>
                 </Link>
@@ -66,4 +76,3 @@ export default function CookieBanner() {
         </Box>
     );
 }
-
