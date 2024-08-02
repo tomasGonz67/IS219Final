@@ -3,16 +3,16 @@ import { Box, Typography, Card, CardContent, Grid } from '@mui/material';
 
 const testimonials = [
     {
-        quote: "This service is amazing! It changed my life for the better.",
-        author: "Jane Doe",
+        quote: "This gym is amazing. I am in the best shape of my life!",
+        author: "Eric Werner",
     },
     {
         quote: "Highly recommend this to anyone looking for quality and reliability.",
-        author: "John Smith",
+        author: "Andrew Cruz",
     },
     {
-        quote: "The best experience I've had with a company in years.",
-        author: "Alice Johnson",
+        quote: "The best experience I've had with fitness in years.",
+        author: "Sam Levinson",
     },
 ];
 
@@ -21,7 +21,7 @@ const TestimonialSection = () => {
         <Box
             sx={{
                 padding: 4,
-                backgroundColor: 'grey.200',
+                backgroundColor: '#4A522A',
                 textAlign: 'center',
             }}
         >
@@ -45,7 +45,10 @@ const TestimonialSection = () => {
                                 boxShadow: 3,
                             }}
                         >
-                            <CardContent>
+                            <CardContent
+                                sx={{
+                                    backgroundColor: "#C5C5C5",
+                                }}>
                                 <Typography
                                     variant="body1"
                                     sx={{
