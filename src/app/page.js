@@ -17,7 +17,7 @@ export default function Home() {
         setIsOpen(isOpen => !isOpen);
     }
   return (
-      <main className={styles.main}>
+      <main>
           <div>
               <Header />
               <HeroSection />

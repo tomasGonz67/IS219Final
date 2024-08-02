@@ -27,7 +27,7 @@ export default function Header() {
                 </Box>
 
                 {/* Navigation Links */}
-                <Box sx={{ color:'white',display: 'flex', gap: spacing }}>
+                <Box sx={{display: 'flex', gap: spacing }}>
                     <Button color="inherit">Home</Button>
                     <Button color="inherit">About</Button>
                     <Button color="inherit">Services</Button>

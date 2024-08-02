@@ -7,9 +7,16 @@ const HeroSection = () => {
         <Box
             sx={{
                 padding: 4,
-                backgroundColor: 'primary.main',
-                color: 'common.white',
+                backgroundImage: 'url("https://img.freepik.com/premium-photo/fitness-exercise-happy-couple-out-running-jogging-forest-trail-park-outdoors-sporty-smiling-man-woman-staying-active-fit-while-exercising-bonding-workout_590464-77228.jpg")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
                 textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                height:'100vh',
+                alignItems: 'center',
+                color: 'white', // Ensure the text is readable
             }}
         >
             <Typography
