@@ -14,7 +14,8 @@ const HeroSection = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                height:'100vh',
+                height: '50vh',
+                width:'50vw',
                 alignItems: 'center',
                 color: 'white', // Ensure the text is readable
             }}

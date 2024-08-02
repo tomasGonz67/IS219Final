@@ -13,6 +13,7 @@ export default function Header() {
         <AppBar position="static">
             <Toolbar
                 sx={{
+                    backgroundColor: '#4A522A',
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
@@ -32,16 +33,6 @@ export default function Header() {
                     <Button color="inherit">About</Button>
                     <Button color="inherit">Services</Button>
                     <Button color="inherit">Contact</Button>
-                </Box>
-
-                {/* Search Bar */}
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: spacing }}>
-                    <TextField
-                        variant="outlined"
-                        size="small"
-                        placeholder="Search..."
-                        sx={{ backgroundColor: 'white', width: `${spacing}px` }}
-                    />
                 </Box>
             </Toolbar>
         </AppBar>
