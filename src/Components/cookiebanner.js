@@ -52,21 +52,19 @@ export default function CookieBanner() {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 p: 2,
-                bgcolor: 'gray.700',
+                bgcolor: 'gray',
                 borderRadius: 2,
                 boxShadow: 3,
                 gap: 2,
             }}
         >
             <Box sx={{ textAlign: 'center' }}>
-                <Link href="/info/cookies" passHref>
                     <Typography color="skyblue" fontWeight="bold">
                         We use <span style={{ color: 'skyblue', fontWeight: 'bold' }}>cookies</span> on our site.
                     </Typography>
-                </Link>
             </Box>
             <Box sx={{ display: 'flex', gap: 2 }}>
-                <Button onClick={() => setCookieConsent(false)} variant="outlined" color="inherit" sx={{ borderColor: 'gray.900', color: 'gray.300' }}>
+                <Button onClick={() => setCookieConsent(false)} variant="outlined" color="inherit" sx={{backgroundColor:'black', borderColor: 'gray.900', color: 'gray.300' }}>
                     Decline
                 </Button>
                 <Button onClick={() => setCookieConsent(true)} variant="contained" sx={{ bgcolor: 'gray.900' }}>
