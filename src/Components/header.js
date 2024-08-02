@@ -21,12 +21,19 @@ export default function Header() {
                 }}
             >
                 {/* Logo Section */}
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: spacing }}>
-                    <Typography variant="h6" component="div" sx={{ fontSize: `${logoSize}px` }}>
-                        MyLogo
-                    </Typography>
-                </Box>
-
+                <Box
+                    sx={{
+                        padding: 4,
+                        backgroundImage: 'url("https://as1.ftcdn.net/v2/jpg/02/99/32/42/1000_F_299324218_ZC0sY6f697km7hz6cYsn5D6kMo5a0lkQ.jpg")',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        textAlign: 'center',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                />
                 {/* Navigation Links */}
                 <Box sx={{display: 'flex', gap: spacing }}>
                     <Button color="inherit">Home</Button>
