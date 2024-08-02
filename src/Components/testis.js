@@ -1,45 +1,5 @@
-'use client';
-
 import React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, Grid } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-
-const GOLDEN_RATIO = 1.618;
-
-const useStyles = makeStyles((theme) => ({
-    testimonialSection: {
-        padding: theme.spacing(4),
-        backgroundColor: theme.palette.grey[200],
-        textAlign: 'center',
-    },
-    headline: {
-        fontSize: '2rem',
-        marginBottom: theme.spacing(4),
-        [theme.breakpoints.up('md')]: {
-            fontSize: '2.5rem',
-        },
-    },
-    testimonialCard: {
-        maxWidth: 345,
-        margin: 'auto',
-        padding: theme.spacing(2),
-        boxShadow: theme.shadows[3],
-    },
-    testimonialText: {
-        fontSize: '1rem',
-        marginBottom: theme.spacing(2),
-        [theme.breakpoints.up('md')]: {
-            fontSize: '1.125rem',
-        },
-    },
-    author: {
-        fontSize: '0.875rem',
-        fontWeight: 'bold',
-        [theme.breakpoints.up('md')]: {
-            fontSize: '1rem',
-        },
-    },
-}));
+import { Box, Typography, Card, CardContent, Grid } from '@mui/material';
 
 const testimonials = [
     {
@@ -56,23 +16,52 @@ const testimonials = [
     },
 ];
 
-export default function TestimonialSection() {
-    const classes = useStyles();
-
+const TestimonialSection = () => {
     return (
-        <Box className={classes.testimonialSection}>
-            <Typography variant="h2" className={classes.headline}>
+        <Box
+            sx={{
+                padding: 4,
+                backgroundColor: 'grey.200',
+                textAlign: 'center',
+            }}
+        >
+            <Typography
+                variant="h2"
+                sx={{
+                    fontSize: { xs: '2rem', md: '2.5rem' },
+                    marginBottom: 4,
+                }}
+            >
                 What Our Clients Say
             </Typography>
             <Grid container spacing={2} justifyContent="center">
                 {testimonials.map((testimonial, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>
-                        <Card className={classes.testimonialCard}>
+                        <Card
+                            sx={{
+                                maxWidth: 345,
+                                margin: 'auto',
+                                padding: 2,
+                                boxShadow: 3,
+                            }}
+                        >
                             <CardContent>
-                                <Typography variant="body1" className={classes.testimonialText}>
+                                <Typography
+                                    variant="body1"
+                                    sx={{
+                                        fontSize: { xs: '1rem', md: '1.125rem' },
+                                        marginBottom: 2,
+                                    }}
+                                >
                                     "{testimonial.quote}"
                                 </Typography>
-                                <Typography variant="body2" className={classes.author}>
+                                <Typography
+                                    variant="body2"
+                                    sx={{
+                                        fontSize: { xs: '0.875rem', md: '1rem' },
+                                        fontWeight: 'bold',
+                                    }}
+                                >
                                     - {testimonial.author}
                                 </Typography>
                             </CardContent>
@@ -82,4 +71,6 @@ export default function TestimonialSection() {
             </Grid>
         </Box>
     );
-}
+};
+
+export default TestimonialSection;

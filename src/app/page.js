@@ -4,6 +4,10 @@ import styles from "./page.module.css";
 import MailChimp from '../Components/mailchimp.js';
 import { Button } from '@mui/material';
 import { useState } from 'react';
+import Header from "../Components/header"
+import HeroSection from "../Components/hero"
+import TestimonialSection from "../Components/testis"
+import Footer from "../Components/footer"
 
 
 export default function Home() {
@@ -15,6 +19,10 @@ export default function Home() {
   return (
       <main className={styles.main}>
           <div>
+              <Header />
+              <HeroSection />
+              <TestimonialSection />
+              <Footer/>
               <Button
                   onClick={togChimp}
                   style={{

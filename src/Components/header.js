@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box, TextField, IconButton } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 
 const GOLDEN_RATIO = 1.618;
 
@@ -28,7 +27,7 @@ export default function Header() {
                 </Box>
 
                 {/* Navigation Links */}
-                <Box sx={{ display: 'flex', gap: spacing }}>
+                <Box sx={{ color:'white',display: 'flex', gap: spacing }}>
                     <Button color="inherit">Home</Button>
                     <Button color="inherit">About</Button>
                     <Button color="inherit">Services</Button>
@@ -43,9 +42,6 @@ export default function Header() {
                         placeholder="Search..."
                         sx={{ backgroundColor: 'white', width: `${spacing}px` }}
                     />
-                    <IconButton color="inherit">
-                        <MenuIcon />
-                    </IconButton>
                 </Box>
             </Toolbar>
         </AppBar>
