@@ -56,7 +56,7 @@ const TestimonialSection = () => {
                                         marginBottom: 2,
                                     }}
                                 >
-                                    "{testimonial.quote}"
+                                    {testimonial.quote}
                                 </Typography>
                                 <Typography
                                     variant="body2"
